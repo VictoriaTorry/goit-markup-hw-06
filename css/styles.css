@@ -53,6 +53,24 @@ body {
   clip: rect(0 0 0 0);
 }
 /*==============COMPONENTS==============*/
+.btn {
+  padding: 10px;
+  min-width: 200px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  font-family: inherit;
+  color: var(--color-on-dark-bg);
+}
+
 .section-title {
   margin-bottom: 50px;
   font-weight: 700;
@@ -244,23 +262,7 @@ body {
   color: var(--color-on-dark-bg);
 }
 
-.hero-btn {
-  padding: 10px;
-  min-width: 200px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  background: var(--accent-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-  font-family: inherit;
-  color: var(--color-on-dark-bg);
-}
+
 
 /*==============END SECTION HERO==============*/
 
@@ -749,7 +751,7 @@ body {
   pointer-events: none;
 }
 
-.backdrop-modal {
+.modal-request {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -761,11 +763,11 @@ body {
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop.is-hidden .backdrop-modal {
+.backdrop.is-hidden .modal-request {
   transform: translate(-50%, -50%) scale(0.8);
 }
 
-.backdrop-modal-close {
+.modal-request__close {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -781,20 +783,20 @@ body {
   cursor: pointer;
 }
 
-.backdrop-modal-close-icon {
+.modal-request__icon {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop-modal-close:hover .backdrop-modal-close-icon,
-.backdrop-modal-close:focus .backdrop-modal-close-icon {
+.modal-request__close:hover .modal-request__icon,
+.modal-request__close:focus .modal-request__icon {
   fill: var(--accent-color);
 }
 
-.backdrop-label {
+.form-request__label {
   display: block;
 }
 
-.backdrop-title {
+.form-request__title {
   padding-bottom: 12px;
   font-weight: 700;
   font-size: 20px;
@@ -804,9 +806,7 @@ body {
 
   color: var(--primary-color);
 }
-.backdrop-label {
-}
-.backdrop-label-description {
+.form-request__description {
   display: inline-block;
   margin-bottom: 4px;
   font-size: 12px;
@@ -814,10 +814,10 @@ body {
   letter-spacing: 0.01em;
   color: var(--main-color);
 }
-.backdrop-input-wrapper {
+.form-request__wrapper {
   position: relative;
 }
-.backdrop-input {
+.form-request__input {
   width: 100%;
   padding: 12px 12px 12px 42px;
   margin-bottom: 10px;
@@ -826,11 +826,11 @@ body {
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop-input:focus {
+.form-request__input:focus {
   outline: none;
   border: 1px solid var(--accent-color);
 }
-.backdrop-input-icon {
+.form-request__icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -839,11 +839,11 @@ body {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop-input:focus + .backdrop-input-icon {
+.form-request__input:focus + .form-request__icon {
   fill: var(--accent-color);
 }
 
-.backdrop-comment {
+.form-request__comment {
   width: 100%;
   height: 120px;
   padding: 12px 16px;
@@ -854,26 +854,30 @@ body {
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop-comment::placeholder {
+.form-request__comment::placeholder {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
 }
 
-.backdrop-comment:focus {
+.form-request__comment:focus {
   outline: none;
   border: 1px solid var(--accent-color);
 }
 
-.backdrop-licence {
+.licence {
   position: relative;
   display: block;
-  margin-bottom: 30px;
   text-align: center;
 }
 
-.backdrop-licence-agreement::after {
+.form-request__licence {
+  margin-bottom: 30px;
+
+}
+
+.licence__agreement::after {
   position: absolute;
   top: 50%;
   left: 10px;
@@ -884,7 +888,7 @@ body {
   border: 2px solid var(--primary-color);
 }
 
-.backdrop-licence-icon {
+.licence__icon {
   position: absolute;
   top: 50%;
   left: 10px;
@@ -896,37 +900,23 @@ body {
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop-licence-checkbox:checked ~ .backdrop-licence-icon {
+.licence__checkbox:checked ~ .licence__icon {
   opacity: 1;
 }
 
-.backdrop-licence-agreement {
+.licence__agreement {
   padding-left: 24px;
   font-size: 14px;
   line-height: 1.7;
   letter-spacing: 0.03em;
   color: var(--main-color);
 }
-.backdrop-licence-agreement-link {
+.licence__link {
   color: var(--accent-color);
 }
-.backdrop-btn {
+.form-request__btn {
   display: block;
   margin: 0 auto;
-  min-width: 200px;
-  min-height: 50px;
-  padding: 10px 20px;
-  border-radius: 4px;
-  border: none;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  text-align: center;
-  letter-spacing: 0.06em;
-  color: var(--color-on-dark-bg);
-  background-color: #188ce8;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
 }
 
 /*============== MODAL BACKDROP==============*/
